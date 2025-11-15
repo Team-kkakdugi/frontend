@@ -1,58 +1,59 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Acorn Hub - 메인</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="UTF-8" />
+  <title>Acorn Hub</title>
+  <link rel="stylesheet" href="css/login.css" />
+</head>
+<body>
+  <!-- 상단 네비게이션 -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <!-- 왼쪽: 로고 자리 -->
+      <div class="logo-placeholder"></div>
 
-    <!-- ✅ CSS 분리 -->
-    <link rel="stylesheet" href="css/main.css" />
-  </head>
-  <body>
-    <header>
-      <div class="logo">Acorn Hub</div>
-      <div class="user-info">
-        <div class="avatar" id="avatar">
-          <!-- 아바타 이미지 JS로 채움 -->
-        </div>
-        <div class="username" id="username">로딩 중...</div>
-        <button class="btn btn-ghost" id="logout-btn">로그아웃</button>
-      </div>
-    </header>
+      <!-- 가운데: 텍스트 로고 -->
+      <span class="brand-name">Acorn Hub</span>
 
-    <main>
-      <div id="loading">로그인 상태 확인 중입니다...</div>
+      <!-- 오른쪽: 로그인 버튼 -->
+      <button id="github-login-btn" class="btn-login">로그인</button>
+    </div>
+  </header>
 
-      <div id="main-content" class="container hidden">
-        <!-- 왼쪽: 자료 리스트 -->
-        <section class="card">
-          <div class="list-header">
-            <h2>나의 자료</h2>
-            <button class="btn" id="add-item-btn">+ 새 자료 추가</button>
-          </div>
-          <ul class="item-list" id="item-list">
-            <!-- JS로 채우기 -->
-          </ul>
-        </section>
+  <!-- 메인 콘텐츠 -->
+  <main>
+    <!-- 히어로 섹션 (첫 화면) -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">
+          AI에게 맡기는 리서치는 그만!
+        </h1>
 
-        <!-- 오른쪽: 상세 패널 -->
-        <section class="card">
-          <h2>선택된 자료</h2>
-          <p id="detail-empty">왼쪽에서 자료를 선택해 주세요.</p>
-          <div id="detail-panel" class="hidden">
-            <h3 id="detail-title"></h3>
-            <p id="detail-desc"></p>
-            <p>
-              <span class="tag" id="detail-type"></span>
-              <span class="tag" id="detail-updated"></span>
+        <div class="hero-content">
+          <!-- 왼쪽 텍스트 블럭 -->
+          <div class="hero-text-block">
+            <h2 class="hero-subheading">자기주도형 자료조사 AI</h2>
+            <p class="hero-description">
+              나중에
             </p>
           </div>
-        </section>
+
+          <!-- 오른쪽 회색 박스 (이미지 자리) -->
+          <div class="hero-image-placeholder">
+            <!-- 나중에 <img src="..." alt="서비스 이미지" /> 넣으면 됨 -->
+          </div>
+        </div>
       </div>
+    </section>
 
-      <p id="error-message" class="error hidden"></p>
-    </main>
+    <!-- 아래로 더 스크롤되는 영역 (나중에 내용 채우기용) -->
+    <section class="below-section">
+      <div class="below-inner">
+        <!-- 나중에 설명/기능 소개/FAQ 등 들어갈 자리 -->
+      </div>
+    </section>
+  </main>
 
-    <script src="main.js"></script>
-  </body>
+  <script src="js/login.js"></script>
+</body>
 </html>
