@@ -21,10 +21,12 @@ body {
   background-color: #ffffff;
 }
 
+/* 헤더 전체 너비 + 양옆 80px 여백 */
+/* 👉 패딩/로고 크기를 줄여서 헤더가 너무 안 커지게 조정 */
 .top-nav-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 12px 24px;
+  width: 100%;
+  margin: 0;
+  padding: 16px 80px;              /* 🔽 28 → 16 (높이 줄이기) */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -33,28 +35,29 @@ body {
 
 /* 왼쪽 로고 자리 */
 .logo-placeholder {
-  width: 32px;
-  height: 32px;
+  width: 48px;                     /* 🔽 72 → 48 (적당한 크기) */
+  height: 48px;
   background-color: #d9d9d9;
 }
 
 /* 가운데 텍스트 로고 */
+/* 👉 헤더는 얇게 유지하면서, 글씨만 조금 크게 */
 .brand-name {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 28px;                 /* 중간 정도 크기 */
+  font-weight: 700;
 }
 
 /* 로그인 버튼 (오른쪽) */
 .btn-login {
-  padding: 8px 18px;
+  padding: 9px 24px;               /* 중간 크기 */
   border-radius: 999px;
   border: none;
-  background-color: #8c6239; /* 갈색 톤 */
+  background-color: #8c6239;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;                 /* 살짝 키운 정도 */
   cursor: pointer;
 }
 
@@ -62,55 +65,57 @@ body {
   opacity: 0.9;
 }
 
-/* 히어로 섹션 */
+/* ===== 히어로 섹션 ===== */
+
 .hero {
   background-color: #ffffff;
-  min-height: calc(100vh - 64px); /* 헤더 제외하고 화면 꽉 채우기 */
+  min-height: calc(100vh - 70px);  /* 헤더 높이 대략 70px 기준으로 보정 */
   display: flex;
-  align-items: center;             /* 세로 가운데 정렬 */
+  align-items: flex-start;
 }
 
+/* 히어로도 전체 너비 + 헤더와 같은 좌우 여백 */
 .hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 60px 40px 80px;
+  width: 100%;
+  margin: 0;
+  padding: 40px 80px 80px;
 }
 
 /* 큰 제목 */
 .hero-title {
-  font-size: 40px;          /* 제목 크게 */
+  font-size: 42px;
   font-weight: 700;
   text-align: center;
-  margin: 0 0 48px;
+  margin: 0 0 40px;
 }
 
 /* 제목 아래 2컬럼 레이아웃 */
 .hero-content {
   display: flex;
-  gap: 64px;
+  gap: 80px;
   align-items: stretch;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 /* 왼쪽 텍스트 블럭 */
 .hero-text-block {
-  flex: 0 0 360px;          /* 적당한 폭으로 고정 */
+  flex: 0 0 420px;
 }
 
 .hero-subheading {
-  font-size: 24px;
+  font-size: 26px;
   margin: 0 0 24px;
 }
 
 .hero-description {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.8;
   margin: 0;
 }
 
 /* 오른쪽 회색 박스 (이미지 자리) */
 .hero-image-placeholder {
-  flex: 0 0 380px;
+  flex: 0 0 460px;
   min-height: 420px;
   background-color: #d9d9d9;
   border-radius: 8px;
@@ -119,7 +124,7 @@ body {
 /* 아래 스크롤 영역 (내용 나중에 채우기용) */
 .below-section {
   background-color: #ffffff;
-  padding: 80px 0 160px; /* 스크롤 여유 */
+  padding: 80px 0 160px;
 }
 
 .below-inner {
@@ -129,18 +134,69 @@ body {
 }
 
 /* 반응형: 화면이 좁을 때 */
-@media (max-width: 768px) {
-  .hero {
-    min-height: auto;       /* 모바일에선 너무 빡빡하지 않게 */
+@media (max-width: 1024px) {
+  .top-nav-inner {
+    padding: 14px 40px;
+  }
+
+  .logo-placeholder {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+
+  .btn-login {
+    padding: 8px 20px;
+    font-size: 14px;
   }
 
   .hero-inner {
-    padding: 40px 20px 60px;
+    padding: 32px 40px 60px;
+  }
+
+  .hero-content {
+    gap: 40px;
+  }
+
+  .hero-image-placeholder {
+    flex: 0 0 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-nav-inner {
+    padding: 12px 20px;
+  }
+
+  .logo-placeholder {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-name {
+    font-size: 18px;
+  }
+
+  .btn-login {
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    padding: 24px 20px 60px;
   }
 
   .hero-title {
-    font-size: 28px;
-    margin: 16px 0 32px;
+    font-size: 30px;
+    margin: 8px 0 28px;
+    text-align: center;
   }
 
   .hero-content {
