@@ -3,6 +3,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --page-padding-desktop: 80px;
+  --page-padding-tablet: 40px;
+  --page-padding-mobile: 20px;
+}
+
 html,
 body {
   height: 100%;
@@ -21,43 +27,50 @@ body {
   background-color: #ffffff;
 }
 
-/* 헤더 전체 너비 + 양옆 80px 여백 */
-/* 👉 패딩/로고 크기를 줄여서 헤더가 너무 안 커지게 조정 */
 .top-nav-inner {
   width: 100%;
   margin: 0;
-  padding: 16px 80px;              /* 🔽 28 → 16 (높이 줄이기) */
+  padding: 16px var(--page-padding-desktop);
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: relative;
 }
 
-/* 왼쪽 로고 자리 */
+/* 로고 */
 .logo-placeholder {
-  width: 48px;                     /* 🔽 72 → 48 (적당한 크기) */
+  width: 48px;
   height: 48px;
-  background-color: #d9d9d9;
+  background-color: #d9d9d9; /* 필요 없으면 나중에 삭제해도 됨 */
+  overflow: hidden;           /* 이미지 튀어나가지 않게 */
+  border-radius: 8px;         /* 살짝 둥글게 (원하면) */
 }
 
-/* 가운데 텍스트 로고 */
-/* 👉 헤더는 얇게 유지하면서, 글씨만 조금 크게 */
+/* 로고 이미지 꽉 채우기 */
+.logo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* 이미지 비율 유지하면서 꽉 채우기 */
+  display: block;
+}
+
+/* 헤더 중앙 텍스트 로고 */
 .brand-name {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 28px;                 /* 중간 정도 크기 */
+  font-size: 28px;
   font-weight: 700;
 }
 
-/* 로그인 버튼 (오른쪽) */
+/* 로그인 버튼 */
 .btn-login {
-  padding: 9px 24px;               /* 중간 크기 */
+  padding: 9px 24px;
   border-radius: 999px;
   border: none;
   background-color: #8c6239;
   color: #ffffff;
-  font-size: 16px;                 /* 살짝 키운 정도 */
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -65,23 +78,20 @@ body {
   opacity: 0.9;
 }
 
-/* ===== 히어로 섹션 ===== */
-
+/* 히어로 섹션 */
 .hero {
   background-color: #ffffff;
-  min-height: calc(100vh - 70px);  /* 헤더 높이 대략 70px 기준으로 보정 */
+  min-height: calc(100vh - 70px);
   display: flex;
   align-items: flex-start;
 }
 
-/* 히어로도 전체 너비 + 헤더와 같은 좌우 여백 */
 .hero-inner {
   width: 100%;
   margin: 0;
-  padding: 40px 80px 80px;
+  padding: 40px var(--page-padding-desktop) 80px;
 }
 
-/* 큰 제목 */
 .hero-title {
   font-size: 42px;
   font-weight: 700;
@@ -89,7 +99,7 @@ body {
   margin: 0 0 40px;
 }
 
-/* 제목 아래 2컬럼 레이아웃 */
+/* 히어로 콘텐츠 2컬럼 */
 .hero-content {
   display: flex;
   gap: 80px;
@@ -97,7 +107,6 @@ body {
   justify-content: space-between;
 }
 
-/* 왼쪽 텍스트 블럭 */
 .hero-text-block {
   flex: 0 0 420px;
 }
@@ -113,7 +122,7 @@ body {
   margin: 0;
 }
 
-/* 오른쪽 회색 박스 (이미지 자리) */
+/* 오른쪽 이미지 박스 */
 .hero-image-placeholder {
   flex: 0 0 460px;
   min-height: 420px;
@@ -121,7 +130,7 @@ body {
   border-radius: 8px;
 }
 
-/* 아래 스크롤 영역 (내용 나중에 채우기용) */
+/* 아래 스크롤 영역 */
 .below-section {
   background-color: #ffffff;
   padding: 80px 0 160px;
@@ -133,10 +142,10 @@ body {
   padding: 0 40px;
 }
 
-/* 반응형: 화면이 좁을 때 */
+/* 태블릿 */
 @media (max-width: 1024px) {
   .top-nav-inner {
-    padding: 14px 40px;
+    padding: 14px var(--page-padding-tablet);
   }
 
   .logo-placeholder {
@@ -154,7 +163,7 @@ body {
   }
 
   .hero-inner {
-    padding: 32px 40px 60px;
+    padding: 32px var(--page-padding-tablet) 60px;
   }
 
   .hero-content {
@@ -166,9 +175,10 @@ body {
   }
 }
 
+/* 모바일 */
 @media (max-width: 768px) {
   .top-nav-inner {
-    padding: 12px 20px;
+    padding: 12px var(--page-padding-mobile);
   }
 
   .logo-placeholder {
@@ -190,13 +200,12 @@ body {
   }
 
   .hero-inner {
-    padding: 24px 20px 60px;
+    padding: 24px var(--page-padding-mobile) 60px;
   }
 
   .hero-title {
     font-size: 30px;
     margin: 8px 0 28px;
-    text-align: center;
   }
 
   .hero-content {

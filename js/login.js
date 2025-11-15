@@ -10,7 +10,7 @@ const GITHUB_LOGIN_URL = `${API_BASE_URL}/auth/github`;
 const ME_URL = `${API_BASE_URL}/api/me`;
 
 // 로그인 성공 후 이동할 페이지
-const AFTER_LOGIN_URL = "/main.html";
+const AFTER_LOGIN_URL = "/dashboard.html";
 
 // ✅ 2. 페이지 로드 시: 로그인 상태 확인해서, 이미 로그인되어 있으면 main.html로 보내기
 async function checkLoginAndRedirect() {
